@@ -113,17 +113,18 @@ if __name__ == "__main__":
 
     # Step 3A: Round-trip verification (always achievable)
     if verify_roundtrip("encrypted_text.txt", shift1, shift2):
-        print("✅ Round-trip verification passed: encrypt(decrypt) == encrypted.")
+        print("Round-trip verification passed: encrypt(decrypt) == encrypted.")
     else:
-        print("❌ Round-trip verification failed (unexpected).")
+        print("Round-trip verification failed (unexpected).")
 
     # Step 3B: Strict verification (may fail due to inherent collisions)
     ok, mismatches = verify_strict("raw_text.txt", "decrypted_text.txt")
     if ok:
-        print("✅ Strict verification passed: Original and Decrypted texts match exactly.")
+        print("Strict verification passed: Original and Decrypted texts match exactly.")
     else:
-        print("⚠️ Strict verification: mismatch detected (expected with these rules).")
+        print("Strict verification: mismatch detected (expected with these rules).")
         # Show a few examples to illustrate why
         for m in mismatches:
             print("   Mismatch:", m)
         print("   Note: Collisions occur (e.g., 'T' and 'E' can both encrypt to 'C' when shift1=2, shift2=3).")
+
